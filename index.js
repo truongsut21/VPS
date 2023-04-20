@@ -35,8 +35,8 @@ app.get('/allRoom', (req, res) => {
 });
 
 app.post('/room', (req, res) => {
-  const { name, email } = req.body;
-  connection.query('INSERT INTO users (id, name) VALUES (?, ?)', [name, email], (err, result) => {
+  const { id, name } = req.body;
+  connection.query('INSERT INTO users (id, name) VALUES (?, ?)', [id, name], (err, result) => {
     if (err) throw err;
     res.send(result);
   });
