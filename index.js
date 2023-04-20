@@ -8,7 +8,7 @@ const port = 3000;
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: '12345678',
   database: 'PhongTro'
 });
 
@@ -36,7 +36,7 @@ app.get('/allRoom', (req, res) => {
 
 app.post('/room', (req, res) => {
   const { name, email } = req.body;
-  connection.query('INSERT INTO users (name, email) VALUES (?, ?)', [name, email], (err, result) => {
+  connection.query('INSERT INTO users (id, name) VALUES (?, ?)', [name, email], (err, result) => {
     if (err) throw err;
     res.send(result);
   });
